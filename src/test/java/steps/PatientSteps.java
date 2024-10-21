@@ -10,11 +10,6 @@ import static org.junit.Assert.assertEquals;
 public class PatientSteps {
     FormPage formPage = new FormPage(Driver.getDriver());
 
-    @Dado("que nao preencha o campo paciente")
-    public void que_nao_preencha_o_campo_paciente() {
-        formPage.patientField("");
-    }
-
     @Dado("passe para o campo seguinte")
     public void passe_para_o_campo_seguinte() {
         DateSteps dateSteps = new DateSteps();
@@ -23,7 +18,7 @@ public class PatientSteps {
 
     @Entao("o sistema deve retornar uma mensagem de campo obrigatorio")
     public void o_sistema_deve_retornar_uma_mensagem_de_campo_obrigatorio(int i) {
-        String messageFound = formPage.requiredMessage(i);
+        String messageFound = formPage.getMessage(i);
         assertEquals(" Esta pergunta é obrigatória", messageFound);
     }
 
@@ -33,7 +28,13 @@ public class PatientSteps {
     }
     @Entao("o sistema não deve retornar nenhuma mensagem de erro")
     public void o_sistema_não_deve_retornar_nenhuma_mensagem_de_erro() {
-        String messageFound = formPage.requiredMessage(1);
+        String messageFound = formPage.getMessage(1);
         assertEquals("", messageFound);
+    }
+
+    @Entao("o sistema deve retornar uma mensagem de erro")
+    public void o_sistema_deve_retornar_uma_mensagem_de_erro() {
+        String messageFound = formPage.getMessage(1);
+        assertEquals(" O nome do paciente informado não atende o padrão esperado.", messageFound);
     }
 }

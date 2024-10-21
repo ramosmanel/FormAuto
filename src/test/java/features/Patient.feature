@@ -7,7 +7,7 @@ Funcionalidade: Registrar um Paciente
 
   @campo_obrigatorio
   Esquema do Cenario: Validar se o campo paciente e obrigatorio
-    Dado que nao preencha o campo paciente
+    Dado que eu preencha o campo paciente
     E passe para o campo seguinte
     Entao o sistema deve retornar uma mensagem de campo obrigatorio
 
@@ -16,3 +16,9 @@ Funcionalidade: Registrar um Paciente
     Dado que eu preencha o campo paciente
     E passe para o campo seguinte
     Entao o sistema não deve retornar nenhuma mensagem de erro
+
+  @repeticao_de_caracteres
+  Esquema do Cenario:  Cadastrar paciente com sequencia de caracteres iguais
+    Dado que eu preencha o campo paciente
+    E passe para o campo seguinte
+    Entao o sistema deve retornar uma mensagem de erro

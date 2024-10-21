@@ -34,4 +34,13 @@ public class FormTests {
         patientSteps.o_sistema_não_deve_retornar_nenhuma_mensagem_de_erro();
     }
 
+    @Test
+    public void characterRepetition(){
+        patientSteps.que_eu_preencha_o_campo_paciente("AAAAAAAA");
+        patientSteps.passe_para_o_campo_seguinte();
+        patientSteps.o_sistema_deve_retornar_uma_mensagem_de_erro();
+    }
+
+
+
 }
