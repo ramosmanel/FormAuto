@@ -12,7 +12,7 @@ public class Driver {
         if(driver == null){
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.get("https://forms.gle/UTDF9Wm1TDLF5Mgh9");
             System.out.println(driver.getTitle());
         }
