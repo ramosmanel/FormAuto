@@ -18,7 +18,7 @@ public class FormPage {
         driver.findElement(By.cssSelector("[aria-labelledby='i1']")).sendKeys(name);
     }
 
-    public String requiredMessage(int i){
+    public String getMessage(int i){
         String xpath = "//div[@class='o3Dpx']/div["+i+"]//div[@class='SL4Sz']";
         return driver.findElement(By.xpath(xpath)).getText();
     }
