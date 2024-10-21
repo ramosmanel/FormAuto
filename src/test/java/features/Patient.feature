@@ -22,3 +22,9 @@ Funcionalidade: Registrar um Paciente
     Dado que eu preencha o campo paciente
     E passe para o campo seguinte
     Entao o sistema deve retornar uma mensagem de erro
+
+  @valor_invalido
+  Esquema do Cenario: Cadastrar paciente com valores invalidos
+    Dado que eu preencha o campo paciente
+    E passe para o campo seguinte
+    Entao o sistema deve retornar uma mensagem de erro
