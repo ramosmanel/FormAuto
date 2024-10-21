@@ -3,12 +3,12 @@ package steps;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.pt.Entao;
 import pageobjects.FormPage;
-
+import setup.Driver;
 
 import static org.junit.Assert.assertEquals;
 
 public class PatientSteps {
-    FormPage formPage;
+    FormPage formPage = new FormPage(Driver.getDriver());
 
     @Dado("que nao preencha o campo paciente")
     public void que_nao_preencha_o_campo_paciente() {
@@ -22,8 +22,18 @@ public class PatientSteps {
     }
 
     @Entao("o sistema deve retornar uma mensagem de campo obrigatorio")
-    public void o_sistema_deve_retornar_uma_mensagem_de_campo_obrigatorio() {
+    public void o_sistema_deve_retornar_uma_mensagem_de_campo_obrigatorio(int i) {
+        String messageFound = formPage.requiredMessage(i);
+        assertEquals(" Esta pergunta é obrigatória", messageFound);
+    }
+
+    @Dado("que eu preencha o campo paciente")
+    public void que_eu_preencha_o_campo_paciente(String patientName) {
+        formPage.patientField(patientName);
+    }
+    @Entao("o sistema não deve retornar nenhuma mensagem de erro")
+    public void o_sistema_não_deve_retornar_nenhuma_mensagem_de_erro() {
         String messageFound = formPage.requiredMessage(1);
-        assertEquals("Esta pergunta é obrigatória", messageFound);
+        assertEquals("", messageFound);
     }
 }

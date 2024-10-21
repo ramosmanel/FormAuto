@@ -10,3 +10,9 @@ Funcionalidade: Registrar um Paciente
     Dado que nao preencha o campo paciente
     E passe para o campo seguinte
     Entao o sistema deve retornar uma mensagem de campo obrigatorio
+
+  @valor_valido
+  Esquema do Cenario: Validar com paciente valido
+    Dado que eu preencha o campo paciente
+    E passe para o campo seguinte
+    Entao o sistema não deve retornar nenhuma mensagem de erro
