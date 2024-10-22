@@ -6,11 +6,13 @@ import pageobjects.FormPage;
 import setup.Driver;
 import steps.PatientSteps;
 import utils.Messages;
+import utils.Screenshot;
 
 
 public class FormTests {
     FormPage formPage;
     PatientSteps patientSteps = new PatientSteps();
+    Screenshot screenshot = new Screenshot();
 
     @Before
     public void startDriver() {
@@ -19,6 +21,7 @@ public class FormTests {
 
     @After
     public void endDriver(){
+        screenshot.takeScreenshot();
         Driver.quitDriver();
     }
 
@@ -69,6 +72,5 @@ public class FormTests {
         patientSteps.passe_para_o_campo_seguinte();
         patientSteps.o_sistema_deve_retornar_uma_mensagem_de(Messages.INVALID_PATIENT_NAME_MESSAGE, 1);
     }
-
 
 }
