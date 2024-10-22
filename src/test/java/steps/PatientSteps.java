@@ -17,8 +17,7 @@ public class PatientSteps {
 
     @Dado("passe para o campo seguinte")
     public void passe_para_o_campo_seguinte() {
-        DateSteps dateSteps = new DateSteps();
-        dateSteps.que_nao_preencha_o_campo_data();
+        formPage.DateField("");
     }
 
     @Entao("o sistema deve retornar uma mensagem de {string}")
