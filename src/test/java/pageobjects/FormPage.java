@@ -27,4 +27,9 @@ public class FormPage {
     public void DateField(String date) {
         driver.findElement(By.cssSelector("[type='date']")).sendKeys(date);
     }
+
+    //Médico
+    public void doctorField(String name){
+        driver.findElement(By.cssSelector("[aria-labelledby='i10']")).sendKeys(name);
+    }
 }
